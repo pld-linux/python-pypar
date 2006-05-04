@@ -6,17 +6,16 @@ Name:		python-%{module}
 Version:	1.9.2
 %define		_vername %(echo %{version}|tr . _)
 Release:	0.1
-License:	BSD-like
+License:	GPL
 Group:		Libraries/Python
 Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{_vername}.tgz
 # Source0-md5:	a21bf293f64ae4531ebcdb7be74b5415
 URL:		http://datamining.anu.edu.au/~ole/pypar/
+BuildRequires:	mpich
 BuildRequires:	python-devel >= 1:2.3
+%pyrequires_eq	python-libs
 BuildRequires:	python-numarray-devel
 BuildRequires:	python-numpy
-BuildRequires:	mpich-devel
-%pyrequires_eq	python-libs
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,28 +40,32 @@ Pakiet zawieraj±cy programy przyk³adowe dla modu³u Pythona pypar.
 %setup -q -n %{module}_%{_vername}
 
 %build
+CFLAGS="%{rpmcflags}"
+export CFLAGS
 python setup.py build_ext
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{py_sitescriptdir},%{_examplesdir}/%{name}-%{version}}
+install -d $RPM_BUILD_ROOT{%{py_sitedir},%{_examplesdir}/%{name}-%{version}}
 
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
-	--install-lib=%{py_sitescriptdir} \
+	--install-lib=%{py_sitedir} \
 	--optimize=2
 
-find $RPM_BUILD_ROOT%{py_sitescriptdir} -name \*.py -exec rm {} \;
+find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
 
-cp -ar example/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -ar examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.txt
-%{py_sitescriptdir}/pypar
+%doc DOC FAQ README
+%dir %{py_sitedir}/%{module}
+%{py_sitedir}/%{module}/*.py[co]
+%attr(755,root,root) %{py_sitedir}/%{module}/*.so
 
 %files examples
 %defattr(644,root,root,755)
