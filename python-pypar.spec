@@ -5,13 +5,13 @@ Summary:	pypar - Parallel Programming in the spirit of Python!
 Name:		python-%{module}
 Version:	1.9.2
 %define		_vername %(echo %{version}|tr . _)
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries/Python
 Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{_vername}.tgz
 # Source0-md5:	a21bf293f64ae4531ebcdb7be74b5415
 URL:		http://datamining.anu.edu.au/~ole/pypar/
-BuildRequires:	mpich
+BuildRequires:	mpi
 BuildRequires:	python-devel >= 1:2.3
 %pyrequires_eq	python-libs
 BuildRequires:	python-numarray-devel
