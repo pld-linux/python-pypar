@@ -2,6 +2,7 @@
 %define 	module	pypar
 
 Summary:	pypar - Parallel Programming in the spirit of Python!
+Summary(pl):	pypar - programowanie równoleg³e w duchu Pythona
 Name:		python-%{module}
 Version:	1.9.2
 %define		_vername %(echo %{version}|tr . _)
@@ -19,10 +20,18 @@ BuildRequires:	python-numpy-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Pypar is an efficient but easy-to-use module that allows programs/scripts
-written in the Python programming language to run in parallel on multiple
-processors and communicate using message passing. Pypar provides bindings to an
-important subset of the message passing interface standard MPI.
+Pypar is an efficient but easy-to-use module that allows
+programs/scripts written in the Python programming language to run in
+parallel on multiple processors and communicate using message passing.
+Pypar provides bindings to an important subset of the message passing
+interface standard MPI.
+
+%description -l pl
+Pypar to sprawny, lecz ³atwy w u¿yciu modu³ pozwalaj±cy programom i
+skrtyptom napisanym w jêzyku programowania Python dzia³aæ równolegle
+na wielu procesorach i komunikowaæ siê przy u¿yciu przekazywania
+komunikatów. Pypar udostêpnia dowi±zania do istotnego podzbioru
+standardu interfejsu przekazywania komunikatów MPI.
 
 %package examples
 Summary:	Example programs for Python pypar module
