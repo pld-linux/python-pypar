@@ -15,8 +15,8 @@ URL:		http://datamining.anu.edu.au/~ole/pypar/
 BuildRequires:	mpi
 BuildRequires:	python-devel >= 1:2.3
 %pyrequires_eq	python-libs
+BuildRequires:	python-Numeric-devel
 BuildRequires:	python-numarray-devel
-BuildRequires:	python-numpy-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
