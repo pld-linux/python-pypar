@@ -1,11 +1,11 @@
 
 %define 	module	pypar
 
+%define		_vername %(echo %{version}|tr . _)
 Summary:	pypar - Parallel Programming in the spirit of Python!
 Summary(pl):	pypar - programowanie równoleg³e w duchu Pythona
 Name:		python-%{module}
 Version:	1.9.2
-%define		_vername %(echo %{version}|tr . _)
 Release:	3
 License:	GPL
 Group:		Libraries/Python
@@ -64,7 +64,7 @@ python setup.py install \
 
 find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
 
-cp -ar examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
