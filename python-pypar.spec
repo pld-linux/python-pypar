@@ -3,7 +3,7 @@
 
 %define		_vername %(echo %{version}|tr . _)
 Summary:	pypar - Parallel Programming in the spirit of Python!
-Summary(pl):	pypar - programowanie równoleg³e w duchu Pythona
+Summary(pl.UTF-8):   pypar - programowanie rÃ³wnolegÅ‚e w duchu Pythona
 Name:		python-%{module}
 Version:	1.9.2
 Release:	3
@@ -26,24 +26,24 @@ parallel on multiple processors and communicate using message passing.
 Pypar provides bindings to an important subset of the message passing
 interface standard MPI.
 
-%description -l pl
-Pypar to sprawny, lecz ³atwy w u¿yciu modu³ pozwalaj±cy programom i
-skrtyptom napisanym w jêzyku programowania Python dzia³aæ równolegle
-na wielu procesorach i komunikowaæ siê przy u¿yciu przekazywania
-komunikatów. Pypar udostêpnia dowi±zania do istotnego podzbioru
-standardu interfejsu przekazywania komunikatów MPI.
+%description -l pl.UTF-8
+Pypar to sprawny, lecz Å‚atwy w uÅ¼yciu moduÅ‚ pozwalajÄ…cy programom i
+skrtyptom napisanym w jÄ™zyku programowania Python dziaÅ‚aÄ‡ rÃ³wnolegle
+na wielu procesorach i komunikowaÄ‡ siÄ™ przy uÅ¼yciu przekazywania
+komunikatÃ³w. Pypar udostÄ™pnia dowiÄ…zania do istotnego podzbioru
+standardu interfejsu przekazywania komunikatÃ³w MPI.
 
 %package examples
 Summary:	Example programs for Python pypar module
-Summary(pl):	Programy przyk³adowe do modu³u Pythona pypar
+Summary(pl.UTF-8):   Programy przykÅ‚adowe do moduÅ‚u Pythona pypar
 Group:		Development/Languages/Python
 Requires:	%{name} = %{version}-%{release}
 
 %description examples
 This package contains example programs for Python pypar module.
 
-%description examples -l pl
-Pakiet zawieraj±cy programy przyk³adowe dla modu³u Pythona pypar.
+%description examples -l pl.UTF-8
+Pakiet zawierajÄ…cy programy przykÅ‚adowe dla moduÅ‚u Pythona pypar.
 
 %prep
 %setup -q -n %{module}_%{_vername}
