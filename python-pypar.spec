@@ -3,7 +3,7 @@
 
 %define		_vername %(echo %{version}|tr . _)
 Summary:	pypar - Parallel Programming in the spirit of Python!
-Summary(pl.UTF-8):   pypar - programowanie równoległe w duchu Pythona
+Summary(pl.UTF-8):	pypar - programowanie równoległe w duchu Pythona
 Name:		python-%{module}
 Version:	1.9.2
 Release:	3
@@ -35,7 +35,7 @@ standardu interfejsu przekazywania komunikatów MPI.
 
 %package examples
 Summary:	Example programs for Python pypar module
-Summary(pl.UTF-8):   Programy przykładowe do modułu Pythona pypar
+Summary(pl.UTF-8):	Programy przykładowe do modułu Pythona pypar
 Group:		Development/Languages/Python
 Requires:	%{name} = %{version}-%{release}
 
