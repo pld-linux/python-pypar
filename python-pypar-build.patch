@@ -1,5 +1,14 @@
 --- pypar_1.9.3/setup.py~	2006-08-08 08:28:00.000000000 +0200
 +++ pypar_1.9.3/setup.py	2007-09-04 16:27:54.000000000 +0200
+@@ -135,7 +135,7 @@
+     if os.name == 'posix' and os.uname()[4] == 'x86_64':
+         #Extra flags for 64 bit architectures
+         #extra_compile_args = ' -fPIC -m64' #Valid for gcc        
+-        extra_compile_args = ' -fPIC -tp amd64' #Valid for pgcc
++        extra_compile_args = ['-fPIC', '-tp', 'amd64'] #Valid for pgcc
+     else:
+         extra_compile_args = None
+ 
 @@ -152,7 +152,7 @@
            package_dir = {'': 'lib'},
            packages  = ['pypar'],
