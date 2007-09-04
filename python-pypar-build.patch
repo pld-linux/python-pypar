@@ -5,7 +5,7 @@
          #Extra flags for 64 bit architectures
          #extra_compile_args = ' -fPIC -m64' #Valid for gcc        
 -        extra_compile_args = ' -fPIC -tp amd64' #Valid for pgcc
-+        extra_compile_args = ['-fPIC', '-tp', 'amd64'] #Valid for pgcc
++        extra_compile_args = ['-fPIC', '-m64'] #Valid for pgcc
      else:
          extra_compile_args = None
  
