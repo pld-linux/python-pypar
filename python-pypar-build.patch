@@ -1,0 +1,11 @@
+--- pypar_1.9.3/setup.py~	2006-08-08 08:28:00.000000000 +0200
++++ pypar_1.9.3/setup.py	2007-09-04 16:27:54.000000000 +0200
+@@ -152,7 +152,7 @@
+           package_dir = {'': 'lib'},
+           packages  = ['pypar'],
+           ext_modules = [Extension('pypar.mpiext',
+-                                   ['mpiext.c'],
++                                   ['lib/pypar/mpiext.c'],
+                                    include_dirs=mpi_flags['inc_dirs'],
+                                    library_dirs=mpi_flags['lib_dirs'],
+                                    libraries=mpi_flags['libs'],
