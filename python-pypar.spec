@@ -10,6 +10,7 @@ License:	GPL
 Group:		Libraries/Python
 Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{version}.tgz
 # Source0-md5:	7039dc549acd1db9806e7510c8eb93dc
+Patch0:		%{name}-build.patch
 URL:		http://datamining.anu.edu.au/~ole/pypar/
 BuildRequires:	mpi
 BuildRequires:	python-devel >= 1:2.3
@@ -46,6 +47,7 @@ Pakiet zawierający programy przykładowe dla modułu Pythona pypar.
 
 %prep
 %setup -q -n %{module}_%{version}
+%patch0 -p1
 
 %build
 CFLAGS="%{rpmcflags}"
@@ -74,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/%{module}
 %{py_sitedir}/%{module}/*.py[co]
 %attr(755,root,root) %{py_sitedir}/%{module}/*.so
+%{py_sitedir}/*.egg-info
 
 %files examples
 %defattr(644,root,root,755)
