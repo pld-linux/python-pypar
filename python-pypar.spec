@@ -13,10 +13,11 @@ Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{version}.tgz
 Patch0:		%{name}-build.patch
 URL:		http://datamining.anu.edu.au/~ole/pypar/
 BuildRequires:	mpi
-BuildRequires:	python-devel >= 1:2.3
-%pyrequires_eq	python-libs
 BuildRequires:	python-Numeric-devel
+BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-numarray-devel
+BuildRequires:	rpm-pythonprov
+%pyrequires_eq	python-libs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
