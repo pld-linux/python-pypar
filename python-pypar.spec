@@ -1,16 +1,15 @@
 
 %define 	module	pypar
 
-%define		_vername %(echo %{version}|tr . _)
 Summary:	pypar - Parallel Programming in the spirit of Python!
 Summary(pl.UTF-8):	pypar - programowanie równoległe w duchu Pythona
 Name:		python-%{module}
-Version:	1.9.2
-Release:	3
+Version:	1.9.3
+Release:	1
 License:	GPL
 Group:		Libraries/Python
-Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{_vername}.tgz
-# Source0-md5:	a21bf293f64ae4531ebcdb7be74b5415
+Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{version}.tgz
+# Source0-md5:	7039dc549acd1db9806e7510c8eb93dc
 URL:		http://datamining.anu.edu.au/~ole/pypar/
 BuildRequires:	mpi
 BuildRequires:	python-devel >= 1:2.3
@@ -46,7 +45,7 @@ This package contains example programs for Python pypar module.
 Pakiet zawierający programy przykładowe dla modułu Pythona pypar.
 
 %prep
-%setup -q -n %{module}_%{_vername}
+%setup -q -n %{module}_%{version}
 
 %build
 CFLAGS="%{rpmcflags}"
