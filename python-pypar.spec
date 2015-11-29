@@ -12,6 +12,7 @@ Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{version}.tgz
 # Source0-md5:	7039dc549acd1db9806e7510c8eb93dc
 Patch0:		%{name}-build.patch
 URL:		http://datamining.anu.edu.au/~ole/pypar/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	mpi
 BuildRequires:	python-Numeric-devel
 BuildRequires:	python-devel >= 1:2.5
