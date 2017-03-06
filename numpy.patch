@@ -1,0 +1,38 @@
+--- pypar_1.9.3/setup.py.orig	2006-08-08 08:28:00.000000000 +0200
++++ pypar_1.9.3/setup.py	2017-03-06 18:53:41.295502420 +0100
+@@ -122,10 +122,15 @@
+             'def_macros': def_macros, 'undef_macros': undef_macros}
+ 
+ 
++def _get_numpy_include_dir():
++    import numpy
++    return numpy.get_include()
++
+ if __name__ == "__main__":
+     setup_compiler()
+ 
+     mpi_flags = get_mpi_flags()
++    numpy_include_dir = _get_numpy_include_dir()
+ 
+ 
+     # FIXME: It would be good to set specific compiler flags, e.g.
+@@ -152,7 +157,7 @@
+           packages  = ['pypar'],
+           ext_modules = [Extension('pypar.mpiext',
+                                    ['lib/pypar/mpiext.c'],
+-                                   include_dirs=mpi_flags['inc_dirs'],
++                                   include_dirs=[mpi_flags['inc_dirs'],numpy_include_dir],
+                                    library_dirs=mpi_flags['lib_dirs'],
+                                    libraries=mpi_flags['libs'],
+                                    define_macros=mpi_flags['def_macros'],
+--- pypar_1.9.3/lib/pypar/mpiext.c~	2006-08-08 08:28:00.000000000 +0200
++++ pypar_1.9.3/lib/pypar/mpiext.c	2017-03-06 07:59:26.935464626 +0100
+@@ -30,7 +30,7 @@
+ #include "Python.h"
+ #include "mpi.h"
+ #include "math.h"
+-#include "Numeric/arrayobject.h"
++#include "numpy/arrayobject.h"
+ 
+ /* to handle MPI constants export (shamelessly stolen from _cursesmodule.c)*/
+ #define SetDictInt(string,ch) \
