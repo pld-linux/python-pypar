@@ -4,7 +4,7 @@ Summary:	pypar - Parallel Programming in the spirit of Python!
 Summary(pl.UTF-8):	pypar - programowanie równoległe w duchu Pythona
 Name:		python-%{module}
 Version:	1.9.3
-Release:	9
+Release:	10
 License:	GPL
 Group:		Libraries/Python
 Source0:	http://datamining.anu.edu.au/~ole/pypar/%{module}_%{version}.tgz
@@ -14,7 +14,7 @@ Patch1:		numpy.patch
 Patch2:		no-m64.patch
 URL:		http://datamining.anu.edu.au/~ole/pypar/
 BuildRequires:	rpmbuild(macros) >= 1.710
-BuildRequires:	mpich-devel
+BuildRequires:	mpi-devel
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-numarray-devel
 BuildRequires:	python-numpy-devel
