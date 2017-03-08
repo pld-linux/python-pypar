@@ -1,0 +1,21 @@
+--- pypar_1.9.3/setup.py~	2017-03-08 07:58:00.000000000 +0100
++++ pypar_1.9.3/setup.py	2017-03-08 07:59:14.024051775 +0100
+@@ -132,17 +132,7 @@
+     mpi_flags = get_mpi_flags()
+     numpy_include_dir = _get_numpy_include_dir()
+ 
+-
+-    # FIXME: It would be good to set specific compiler flags, e.g.
+-    # for our AMD opteron cluster which is using the portland group
+-    # compiler pgcc, but I can't get this to work let alone get distutils
+-    # to give some diagnostics on what flags it is actually using.
+-    if os.name == 'posix' and os.uname()[4] == 'x86_64':
+-        #Extra flags for 64 bit architectures
+-        #extra_compile_args = ' -fPIC -m64' #Valid for gcc        
+-        extra_compile_args = ['-fPIC', '-m64'] #Valid for pgcc
+-    else:
+-        extra_compile_args = None
++    extra_compile_args = ['-fPIC']
+ 
+ 
+     
